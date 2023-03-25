@@ -1,0 +1,9 @@
+#!/bin/bash
+SIGNAL=$(iw dev wlp6s0 link | grep signal | awk '{print $2$3}')
+SSID=$(iw dev wlp6s0 link | grep SSID | awk '{$1=""; print}')
+if [ -z $SIGNAL ];
+then
+   echo ""
+else
+   echo " " $SSID
+fi

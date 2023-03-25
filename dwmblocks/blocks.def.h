@@ -2,7 +2,9 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
-
+	
+	{"", "~/.dwm/dwmblocks/scripts/battery",	120,		0},
+	
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
 
