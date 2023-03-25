@@ -38,9 +38,9 @@ fi
 
 if [ $TIMEREM = "until" ];
 then
-   echo "$BATCAPI $BATTERY"
+   echo "$BATCAPI $BATTERY%"
 else
-   echo "$BATCAPI $BATTERY $TIMEREM"
+   echo "$BATCAPI $BATTERY% $TIMEREM"
 fi
 
 if [ $BATTERYSTAT = Discharging ];
