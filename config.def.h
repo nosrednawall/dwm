@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
@@ -65,6 +65,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+/* commands */
+static const char *upvol[] = { "amixer", "set", "Master", "5%+", NULL };
+static const char *downvol[] = { "amixer", "set", "Master", "5%-", NULL };
+// for muting/unmuting //
+static const char *mute[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+// lockscreen
+static const char *lockscreencmd[] = {"sh","$HOME/.local/bin/lockscreen",NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +113,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,							XK_r,      quit,           {1} }, 
+	/*Meus atalhos*/
+	{ MODKEY,												XK_x,			 spawn,					 {.v = lockscreencmd } },
+  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
+  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+  { 0,              XF86XK_AudioMute,        spawn,          {.v = mute } },
 };
 
 /* button definitions */
