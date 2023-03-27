@@ -96,46 +96,40 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 float alpha = 0.9;
 
-/* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-	/* 8 normal colors */
-	[0] = "#123e7c",
-	[1] = "#ff0000",
-	[2] = "#d300c4",
-	[3] = "#f57800",
-	[4] = "#123e7c",
-	[5] = "#711c91",
-	[6] = "#0abdc6",
-	[7] = "#d7d7d5",
+const char *colorname[] = {
 
-	/* 8 bright colors */
-	[8] = "#1c61c2",
-	[9] = "#ff0000",
-	[10] = "#d300c4",
-	[11] = "#f57800",
-	[12] = "#00ff00",
-	[13] = "#711c91",
-	[14] = "#0abdc6",
-	[15] = "#d7d7d5",
+  /* 8 normal colors */
+  [0] = "#0c0a12", /* black   */
+  [1] = "#6A8CAF", /* red     */
+  [2] = "#759DC2", /* green   */
+  [3] = "#7BA5CC", /* yellow  */
+  [4] = "#87B7E0", /* blue    */
+  [5] = "#96CDFB", /* magenta */
+  [6] = "#ACD8FC", /* cyan    */
+  [7] = "#d6e7f5", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  [8]  = "#95a1ab",  /* black   */
+  [9]  = "#6A8CAF",  /* red     */
+  [10] = "#759DC2", /* green   */
+  [11] = "#7BA5CC", /* yellow  */
+  [12] = "#87B7E0", /* blue    */
+  [13] = "#96CDFB", /* magenta */
+  [14] = "#ACD8FC", /* cyan    */
+  [15] = "#d6e7f5", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	[256] = "#0abdc6", // foreground
-	[257] = "#000b1e", // background
-	[258] = "#ffffff", // cursor
-
+  /* special colors */
+  [256] = "#0c0a12", /* background */
+  [257] = "#d6e7f5", /* foreground */
+  [258] = "#d6e7f5",     /* cursor */
 };
 
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-unsigned int defaultfg = 256;
-unsigned int defaultbg = 257;
-unsigned int defaultcs = 258;
-static unsigned int defaultrcs = 258;
+/* Default colors (colorname index)
+ * foreground, background, cursor */
+ unsigned int defaultbg = 0;
+ unsigned int defaultfg = 257;
+ unsigned int defaultcs = 258;
+ unsigned int defaultrcs= 258;
 
 /*
  * Default shape of cursor
@@ -179,6 +173,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
+	{ ShiftMask,            Button4, kscrollup,      {.i = 1} },
+	{ ShiftMask,            Button5, kscrolldown,    {.i = 1} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
