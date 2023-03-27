@@ -73,6 +73,9 @@ static const char *downvol[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *mute[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 // lockscreen
 static const char *lockscreencmd[] = {"slock",NULL};
+//printscreen
+static const char *printscreencopycmd[] = {"maim", "-s", "|", "xclip", "-selection", "clipboard", "-t", "image/png", NULL};
+static const char *printscreensavecmd[] = {"maim", "-s", "$HOME/Imagens/Screenshoots/`date +%Y-%m-%d_%H:%M:%S`.png", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -119,6 +122,8 @@ static const Key keys[] = {
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
   { 0,              XF86XK_AudioMute,        spawn,          {.v = mute } },
+	{ MODKEY,												XK_s,			 spawn,					 {.v = printscreencopycmd } },
+	{ 0,														XK_Print,	 spawn,					 {.v = printscreensavecmd } },
 };
 
 /* button definitions */
