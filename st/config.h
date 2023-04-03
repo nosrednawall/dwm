@@ -96,40 +96,42 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 float alpha = 0.9;
 
-const char *colorname[] = {
+#include "/home/anderson/.cache/wal/colors-wal-st.h"
 
-  /* 8 normal colors */
-  [0] = "#0c0a12", /* black   */
-  [1] = "#6A8CAF", /* red     */
-  [2] = "#759DC2", /* green   */
-  [3] = "#7BA5CC", /* yellow  */
-  [4] = "#87B7E0", /* blue    */
-  [5] = "#96CDFB", /* magenta */
-  [6] = "#ACD8FC", /* cyan    */
-  [7] = "#d6e7f5", /* white   */
+// const char *colorname[] = {
 
-  /* 8 bright colors */
-  [8]  = "#95a1ab",  /* black   */
-  [9]  = "#6A8CAF",  /* red     */
-  [10] = "#759DC2", /* green   */
-  [11] = "#7BA5CC", /* yellow  */
-  [12] = "#87B7E0", /* blue    */
-  [13] = "#96CDFB", /* magenta */
-  [14] = "#ACD8FC", /* cyan    */
-  [15] = "#d6e7f5", /* white   */
+//  8 normal colors
+  // [0] = "#0c0a12", [> black   <]
+  // [1] = "#6A8CAF", [> red     <]
+  // [2] = "#759DC2", [> green   <]
+  // [3] = "#7BA5CC", [> yellow  <]
+  // [4] = "#87B7E0", [> blue    <]
+  // [5] = "#96CDFB", [> magenta <]
+  // [6] = "#ACD8FC", [> cyan    <]
+  // [7] = "#d6e7f5", [> white   <]
 
-  /* special colors */
-  [256] = "#0c0a12", /* background */
-  [257] = "#d6e7f5", /* foreground */
-  [258] = "#d6e7f5",     /* cursor */
-};
+ // 8 bright colors
+  // [8]  = "#95a1ab",  [> black   <]
+  // [9]  = "#6A8CAF",  [> red     <]
+  // [10] = "#759DC2", [> green   <]
+  // [11] = "#7BA5CC", [> yellow  <]
+  // [12] = "#87B7E0", [> blue    <]
+  // [13] = "#96CDFB", [> magenta <]
+  // [14] = "#ACD8FC", [> cyan    <]
+  // [15] = "#d6e7f5", [> white   <]
 
-/* Default colors (colorname index)
- * foreground, background, cursor */
- unsigned int defaultbg = 0;
- unsigned int defaultfg = 257;
- unsigned int defaultcs = 258;
- unsigned int defaultrcs= 258;
+//  special colors
+  // [256] = "#0c0a12", [> background <]
+  // [257] = "#d6e7f5", [> foreground <]
+  // [258] = "#d6e7f5",     [> cursor <]
+// };
+
+//Default colors (colorname index)
+// foreground, background, cursor 
+ // unsigned int defaultbg = 0;
+ // unsigned int defaultfg = 257;
+ // unsigned int defaultcs = 258;
+ // unsigned int defaultrcs= 258;
 
 /*
  * Default shape of cursor
